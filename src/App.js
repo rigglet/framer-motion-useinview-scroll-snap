@@ -3,11 +3,12 @@ import "./styles.css";
 
 import { motion, useTransform, useElementScroll } from "framer-motion";
 import { useWindowSize } from "./hook-use-window-size";
-import { Box, ContentBox } from "./Box";
+import { Box } from "./Box";
+import { ContentBox } from "./ContentBox";
 
 const LINE_VARIANTS = {
   visible: { height: "75vh", transition: { duration: 2 } },
-  hidden: { height: "0vh" }
+  hidden: { height: "0vh" },
 };
 
 const SnapParent = React.forwardRef(({ ...props }, ref) => (
@@ -28,10 +29,6 @@ const Container = ({ children }) => {
   const [scrollYValue, setScrollYValue] = useState(0);
   const [scrollYProgressValue, setScrollYProgressValue] = useState(0);
 
-  const refreshPage = () => {
-    window.location.reload();
-  };
-
   useEffect(() => {
     scrollY.onChange((v) => setScrollYValue(v));
     scrollYProgress.onChange((v) => setScrollYProgressValue(v));
@@ -40,7 +37,7 @@ const Container = ({ children }) => {
   return (
     <div
       style={{
-        position: "relative"
+        position: "relative",
       }}
     >
       <div
@@ -49,7 +46,7 @@ const Container = ({ children }) => {
           top: 0,
           fontFamily: "monospace",
           fontWeight: 600,
-          zIndex: 50
+          zIndex: 50,
         }}
       >
         {"height: " +
@@ -63,7 +60,6 @@ const Container = ({ children }) => {
           " w: " +
           windowSize.width +
           "   "}
-        <button onClick={refreshPage}>refresh</button>
       </div>
       <div
         style={{
@@ -73,7 +69,7 @@ const Container = ({ children }) => {
           justifyContent: "center",
           width: "100%",
           zIndex: 20,
-          pointerEvents: "none"
+          pointerEvents: "none",
         }}
       >
         <motion.div
@@ -83,10 +79,11 @@ const Container = ({ children }) => {
           style={{ backgroundColor: "black", width: 3, height: calcHeight }}
         />
       </div>
+
       <SnapParent
         ref={ref}
         style={{
-          position: "absolute"
+          position: "absolute",
         }}
       >
         {children}

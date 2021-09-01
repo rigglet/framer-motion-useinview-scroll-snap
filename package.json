@@ -5,11 +5,13 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "@types/react": "^17.0.19",
     "framer-motion": "3.1.2",
     "react": "17.0.0",
     "react-dom": "17.0.0",
     "react-intersection-observer": "8.31.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "styled-components": "^5.3.1"
   },
   "devDependencies": {
     "typescript": "3.8.3"
